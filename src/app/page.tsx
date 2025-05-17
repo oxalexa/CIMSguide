@@ -403,7 +403,7 @@ flowchart TD
                       </ul>
                     </li>
                 </ul>
-                <Image src="https://placehold.co/400x300.png" alt="Notification Panel" width={400} height={300} className="my-4 rounded-lg shadow-md border" data-ai-hint="notification panel" />
+                <Image src="/bell.jpg" alt="Notification Panel" width={400} height={300} className="my-4 rounded-lg shadow-md border" data-ai-hint="notification panel" />
               </GuideSection>
 
               <GuideSection id="user-client-management" title="6.7 User & Client Management" level={3} icon={Users}>
