@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import TableOfContents from '@/components/user-guide/table-of-contents';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -73,10 +72,10 @@ flowchart TD
     <div className="min-h-screen bg-background text-foreground font-sans">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <header className="mb-12 text-center">
-          <Image 
-            src="https://placehold.co/1200x400.png" 
-            alt="Chefland Warehouse Interior" 
-            width={1200} 
+          <Image
+            src="/top1200X400_banner.jpg"
+            alt="Chefland Warehouse Banner"
+            width={1200}
             height={400}
             className="w-full max-h-[400px] object-cover rounded-xl shadow-2xl mb-8"
             data-ai-hint="food warehouse"
@@ -132,12 +131,12 @@ flowchart TD
                   <li>Click the <strong>"Sign in with Google"</strong> button.</li>
                   <li>Select your authorized Google account from the list.</li>
                 </ol>
-                <Image src="https://placehold.co/600x300.png" alt="CIMS Login Screen" width={600} height={300} className="my-4 rounded-lg shadow-md border" data-ai-hint="login screen" />
+                <Image src="/Logging_in.jpg" alt="CIMS Login Screen" width={600} height={300} className="my-4 rounded-lg shadow-md border" data-ai-hint="login screen" />
                 <p>If you encounter any issues logging in or require access, please contact your system administrator or <a href="mailto:info@chefland.ch" className="text-secondary hover:underline">info@chefland.ch</a>.</p>
               </GuideSection>
               <GuideSection id="navigating-cims" title="2.2 Navigating CIMS" level={3}>
                 <p>Once logged in, you will be greeted by the CIMS dashboard or a relevant landing page based on your role. The main navigation menu provides access to different modules and features.</p>
-                <Image src="https://placehold.co/700x400.png" alt="CIMS Dashboard Navigation" width={700} height={400} className="my-4 rounded-lg shadow-md border" data-ai-hint="app dashboard navigation" />
+                <Image src="/2.2_2.2 Navigating_CIMS.jpg" alt="CIMS Dashboard Navigation" width={700} height={400} className="my-4 rounded-lg shadow-md border" data-ai-hint="app dashboard navigation" />
                 <p>CIMS is <strong>mobile-first and responsive</strong>, so you can use it on desktop, tablet, or smartphone.</p>
               </GuideSection>
             </GuideSection>
@@ -175,11 +174,15 @@ flowchart TD
 
             <GuideSection id="core-workflow" title="4. Core System Workflow: From Goods In to Customer Out" icon={Workflow}>
               <p>Understanding the flow of inventory and information within CIMS is key to utilizing it effectively. The following diagram illustrates the typical lifecycle of a product as it moves through your operations, highlighting interactions for different roles.</p>
-              <Image src="https://placehold.co/800x600.png" alt="Core System Workflow Diagram" width={800} height={600} className="my-4 w-full rounded-lg shadow-md border" data-ai-hint="workflow diagram" />
-              <details className="bg-muted/50 p-4 rounded-lg shadow-sm">
-                <summary className="cursor-pointer text-secondary font-medium hover:underline">View Mermaid Diagram Code</summary>
-                <pre className="bg-background p-3 mt-2 rounded-md overflow-x-auto text-sm"><code className="language-mermaid">{mermaidCode}</code></pre>
-              </details>
+              <img
+                src="/CIMS_flowchart.svg"
+                alt="Core System Workflow Diagram"
+                width={700}
+                height={1793}
+                className="my-4 w-full max-w-[700px] h-auto rounded-lg shadow-md border mx-auto"
+                data-ai-hint="workflow diagram"
+                loading="eager"
+              />
             </GuideSection>
 
             <GuideSection id="product-batch-structure" title="5. Product & Batch Structure" icon={Package}>
@@ -230,7 +233,7 @@ flowchart TD
                   <li><strong>Accessing:</strong> Navigate to <strong>"Inventory"</strong> from the main menu.</li>
                   <li><strong>Viewing Products:</strong> Products are displayed in a responsive table (desktop) or card (mobile) format. Utilize search, sort (by SKU, name, etc.), and filter options to quickly find items.</li>
                 </ul>
-                <Image src="https://placehold.co/700x350.png" alt="Inventory Module View" width={700} height={350} className="my-4 rounded-lg shadow-md border" data-ai-hint="inventory list" />
+                <Image src="/6.1_Inventory_Management.png" alt="Inventory Module View" width={720} height={490} className="my-4 rounded-lg shadow-md border" data-ai-hint="inventory list" />
                 <p className="font-semibold mt-4">Adding a New Product (Master Item):</p>
                 <ol className="list-decimal list-inside space-y-2 pl-4">
                   <li>Click the <strong>"Add Product"</strong> or <strong>"+"</strong> icon.</li>
@@ -245,7 +248,7 @@ flowchart TD
                   </li>
                   <li>Save the product. This item now exists in your master list, ready for batches to be associated with it.</li>
                 </ol>
-                <Image src="https://placehold.co/600x450.png" alt="Add Product Form" width={600} height={450} className="my-4 rounded-lg shadow-md border" data-ai-hint="add product form" />
+                <Image src="/Editing_Product.png" alt="Editing Product" width={715} height={495} className="my-4 rounded-lg shadow-md border" data-ai-hint="editing product" />
                 <p className="font-semibold mt-4">Editing a Product:</p>
                 <p>Locate the product, click the "Edit" icon, modify the necessary details, and save.</p>
                 <p className="font-semibold mt-4">CSV Import/Export:</p>
@@ -261,7 +264,7 @@ flowchart TD
                 <ul className="list-disc list-inside space-y-2 pl-4">
                     <li><strong>Accessing:</strong> Navigate to <strong>"Batches"</strong> from the main menu.</li>
                 </ul>
-                <Image src="https://placehold.co/700x350.png" alt="Batches Module View" width={700} height={350} className="my-4 rounded-lg shadow-md border" data-ai-hint="batch list" />
+                <Image src="/6.2_Inbound_Batches.png" alt="Inbound Batches" width={700} height={351}  className="my-4 rounded-lg shadow-md border" data-ai-hint="batch list" />
                 <p className="font-semibold mt-4">Creating a New Batch:</p>
                 <ol className="list-decimal list-inside space-y-2 pl-4">
                   <li>Click <strong>"Add Batch"</strong>.</li>
@@ -277,7 +280,7 @@ flowchart TD
                   </li>
                   <li>Save the batch. This action immediately updates the available stock for the linked SKU.</li>
                 </ol>
-                <Image src="https://placehold.co/600x500.png" alt="Add Batch Form" width={600} height={500} className="my-4 rounded-lg shadow-md border" data-ai-hint="add batch form" />
+                <Image src="/Add_batch.png" alt="Add Batch Form" width={538} height={715} className="my-4 rounded-lg shadow-md border" data-ai-hint="add batch form" />
                 <p className="font-semibold mt-4">Editing a Batch:</p>
                 <p>Find the batch in the list, click its "Edit" icon, make corrections, and save.</p>
                 <p className="font-semibold mt-4">Viewing Batches:</p>
@@ -298,7 +301,7 @@ flowchart TD
                     <li>Add optional notes for further clarification.</li>
                     <li>Submit the shrinkage entry.</li>
                   </ol>
-                  <Image src="https://placehold.co/600x400.png" alt="Add Shrinkage Form" width={600} height={400} className="my-4 rounded-lg shadow-md border" data-ai-hint="add shrinkage form" />
+                  <Image src="/Shrinkage.png" alt="Add Shrinkage Form" width={536} height={990} className="my-4 rounded-lg shadow-md border" data-ai-hint="add shrinkage form" />
                   <p className="font-semibold mt-4">System Action:</p>
                   <ul className="list-disc list-inside space-y-2 pl-4">
                     <li>CIMS generates a <em>new, linked batch record</em> (e.g., <code>SHR-324029-1</code>).</li>
@@ -318,7 +321,7 @@ flowchart TD
                 <ul className="list-disc list-inside space-y-2 pl-4">
                     <li><strong>Accessing:</strong> Navigate to <strong>"Invoices"</strong> or <strong>"Orders"</strong> from the menu.</li>
                 </ul>
-                <Image src="https://placehold.co/700x350.png" alt="Orders/Invoices View" width={700} height={350} className="my-4 rounded-lg shadow-md border" data-ai-hint="invoice list" />
+                <Image src="/Outbound.png" alt="Orders/Invoices View" width={1031} height={485} className="my-4 rounded-lg shadow-md border" data-ai-hint="invoice list" />
                 <p className="font-semibold mt-4">Creating an Order/Invoice:</p>
                 <ol className="list-decimal list-inside space-y-2 pl-4">
                   <li>Click <strong>"Create Invoice"</strong>.</li>
@@ -334,7 +337,7 @@ flowchart TD
                   </li>
                   <li>Review and save. This deducts the allocated quantities from the respective batches' available stock.</li>
                 </ol>
-                <Image src="https://placehold.co/700x500.png" alt="Create Invoice Item Allocation" width={700} height={500} className="my-4 rounded-lg shadow-md border" data-ai-hint="create invoice items" />
+                <Image src="/DN.png" alt="Create Invoice Item Allocation" width={914} height={432} className="my-4 rounded-lg shadow-md border" data-ai-hint="create invoice items" />
                 <p className="font-semibold mt-4">Small Invoice Integration (Delivery Notes):</p>
                 <ul className="list-disc list-inside space-y-2 pl-4">
                   <li>CIMS integrates with the Small Invoice API for delivery note processing.</li>
@@ -361,7 +364,7 @@ flowchart TD
                       </ul>
                     </li>
                 </ul>
-                <Image src="https://placehold.co/700x450.png" alt="Expiry Calendar View" width={700} height={450} className="my-4 rounded-lg shadow-md border" data-ai-hint="expiry calendar" />
+                <Image src="/Calandar.png" alt="Expiry Calendar View" width={953} height={521} className="my-4 rounded-lg shadow-md border" data-ai-hint="expiry calendar" />
               </GuideSection>
 
               <GuideSection id="dashboard-analytics" title="6.5 Dashboard & Analytics" level={3} icon={BarChart3}>
@@ -378,7 +381,7 @@ flowchart TD
                       </ul>
                     </li>
                 </ul>
-                <Image src="https://placehold.co/800x500.png" alt="CIMS Dashboard Analytics" width={800} height={500} className="my-4 rounded-lg shadow-md border" data-ai-hint="analytics dashboard" />
+                <Image src="/dashboard.png" alt="CIMS Dashboard Analytics" width={1014} height={599} className="my-4 rounded-lg shadow-md border" data-ai-hint="analytics dashboard" />
               </GuideSection>
 
               <GuideSection id="notification-system" title="6.6 Notification System" level={3} icon={Bell}>
@@ -442,7 +445,7 @@ flowchart TD
                     <li><strong>Real-Time Availability:</strong> See up-to-date stock levels, including batch details and expiry dates where applicable.</li>
                     <li><strong>Featured Products:</strong> The portal may highlight items such as those nearing expiry, new arrivals, or promotional products.</li>
                 </ul>
-                <Image src="https://placehold.co/700x400.png" alt="Client Portal Product Search" width={700} height={400} className="my-4 rounded-lg shadow-md border" data-ai-hint="client portal search" />
+                <Image src="/Search.png" alt="Client Portal Product Search" width={656} height={400} className="my-4 rounded-lg shadow-md border" data-ai-hint="client portal search" />
               </GuideSection>
               <GuideSection id="client-cart-checkout" title="7.3 Cart & Checkout Process" level={3}>
                  <ul className="list-disc list-inside space-y-2 pl-4">
@@ -450,7 +453,7 @@ flowchart TD
                     <li><strong>Batch-Aware Cart:</strong> The system allocates stock from available batches, following FIFO logic.</li>
                     <li><strong>Checkout Flow:</strong> Review cart, confirm delivery info, accept terms, and submit the order.</li>
                 </ul>
-                <Image src="https://placehold.co/700x450.png" alt="Client Portal Cart & Checkout" width={700} height={450} className="my-4 rounded-lg shadow-md border" data-ai-hint="client portal cart" />
+                <Image src="/Order.png" alt="Client Portal Cart & Checkout" width={600} height={765} className="my-4 rounded-lg shadow-md border" data-ai-hint="client portal cart" />
               </GuideSection>
               <GuideSection id="client-order-confirmation" title="7.4 Order Confirmation & Client Profile (<code>/profile</code>)" level={3}>
                 <ul className="list-disc list-inside space-y-2 pl-4">
@@ -479,7 +482,7 @@ flowchart TD
                     </li>
                     <li><strong>Accessing Sandra:</strong> Look for the microphone icon or "Ask Sandra" button.</li>
                 </ul>
-                <Image src="https://placehold.co/500x300.png" alt="Client Portal Voice Assistant (Sandra)" width={500} height={300} className="my-4 rounded-lg shadow-md border" data-ai-hint="voice assistant interface" />
+                <Image src="/Client.png" alt="Client Portal Voice Assistant (Sandra)" width={656} height={400} className="my-4 rounded-lg shadow-md border" data-ai-hint="voice assistant interface" />
               </GuideSection>
               <GuideSection id="client-privacy-terms" title="7.6 Privacy & Terms" level={3}>
                 <p>The portal provides links to the <strong>Privacy Policy</strong> and <strong>Terms & Conditions</strong>.</p>
@@ -498,7 +501,7 @@ flowchart TD
                   </li>
                   <li><strong>Accessibility (A11y):</strong> Keyboard navigation, ARIA labels, and screen reader compatibility are supported.</li>
               </ul>
-              <Image src="https://placehold.co/400x600.png" alt="CIMS Mobile View" width={400} height={600} className="my-4 rounded-lg shadow-md border" data-ai-hint="mobile app view" />
+              <Image src="/hand_mobile.png" alt="CIMS Mobile View" width={370} height={565} className="my-4 rounded-lg shadow-md border" data-ai-hint="mobile app view" />
             </GuideSection>
 
             <GuideSection id="support-troubleshooting" title="9. Support & Troubleshooting" icon={LifeBuoy}>
