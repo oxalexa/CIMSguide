@@ -119,7 +119,189 @@ const en = {
     '<strong>Import:</strong> For bulk adding or updating products, use the <strong>"Import Inventory"</strong> button. Download the template CSV, populate it, and upload.',
     '<strong>Export:</strong> To get a full list of your inventory items, use the <strong>"Export Table"</strong> or <strong>"Export to CSV"</strong> button.'
   ],
-  // ... (continue for all other sections, using keys for each string/paragraph)
+  inbound_batch_management_title: "6.2 Inbound Batch Management (Receiving Goods)",
+  inbound_batch_management_roles: "(Primary Users: Admin, Invoice, Inventory, Inbound Roles; View-Only Access: Guest Role)",
+  inbound_batch_management_body: "This is where you record every new shipment of products that arrives at your facility. Each distinct delivery with its own expiry date and/or lot number should be entered as a separate batch.",
+  inbound_batch_management_points: [
+    '<strong>Accessing:</strong> Navigate to <strong>"Batches"</strong> from the main menu.'
+  ],
+  inbound_batch_management_add_title: "Creating a New Batch:",
+  inbound_batch_management_add_steps: [
+    'Click <strong>"Add Batch"</strong>.',
+    "Fill in the batch details:",
+    [
+      "<code>SKU</code>: Select the product from your master inventory list.",
+      "<code>Batch Number</code>: Enter the supplier's batch/lot number. If none is provided, use a consistent internal numbering system.",
+      "<code>Quantity</code> / <code>Weight (Kilos)</code>: Enter the amount received.",
+      "<code>Expiry Date</code>: Enter the product's expiry date.",
+      "<code>Date Received</code>: Defaults to the current date but can be adjusted.",
+      "<code>Warehouse</code>: Select the storage location."
+    ],
+    "Save the batch. This action immediately updates the available stock for the linked SKU."
+  ],
+  inbound_batch_management_edit_title: "Editing a Batch:",
+  inbound_batch_management_edit_body: 'Find the batch in the list, click its "Edit" icon, make corrections, and save.',
+  inbound_batch_management_view_title: "Viewing Batches:",
+  inbound_batch_management_view_body: 'Batches are displayed in responsive views, typically sorted by <code>Date Received</code> (newest first). You can search, filter, and sort by other criteria.',
+  batch_shrinkage_tracking_title: "6.2.1 Batch Shrinkage Tracking",
+  batch_shrinkage_tracking_roles: "(Accessible to: Admin, Invoice, Inventory, Inbound Roles)",
+  batch_shrinkage_tracking_body: "Recording shrinkage accurately reflects true inventory levels and helps identify areas of loss.",
+  batch_shrinkage_tracking_points: [
+    "<strong>Purpose:</strong> To account for any inventory that is lost or becomes unusable before being sold or consumed. Common reasons include: Damaged, Expired, Lost, Spoilage, Theft, Supplier Defects, Other."
+  ],
+  batch_shrinkage_tracking_howto_title: "How to Record Shrinkage:",
+  batch_shrinkage_tracking_howto_steps: [
+    'Click <strong>"Add Shrinkage"</strong> on the "Batches" page or within a batch\'s details.',
+    "<strong>Search for Original Batch:</strong> Use the batch number or SKU to find the parent batch. The system will display its current available quantity.",
+    "<strong>Enter Loss Amount:</strong> Input the quantity or weight lost (as a positive number).",
+    "<strong>Select Shrinkage Reason:</strong> Choose the most appropriate reason from the predefined list.",
+    "Add optional notes for further clarification.",
+    "Submit the shrinkage entry."
+  ],
+  batch_shrinkage_tracking_system_title: "System Action:",
+  batch_shrinkage_tracking_system_points: [
+    "CIMS generates a <em>new, linked batch record</em> (e.g., <code>SHR-324029-1</code>).",
+    "The shrinkage batch stores the lost amount as a <strong>negative quantity/weight</strong>.",
+    "It is linked to the original batch via a <code>base_id</code> field.",
+    "The available amount of the original SKU is immediately reduced.",
+    "<strong>Balance Calculation:</strong><br /><code>availableAmount = initial_batch_quantity + sum_of_all_related_shrinkage_entries (negative) - sum_of_quantities_used_in_invoices</code>"
+  ],
+  outbound_management_title: "6.3 Outbound Management: Orders, Delivery Notes, Invoices",
+  outbound_management_roles: "(Primary Users: Admin, Invoice Roles)",
+  outbound_management_body: "This section covers the process of managing stock leaving your facility.",
+  outbound_management_points: [
+    '<strong>Accessing:</strong> Navigate to <strong>"Invoices"</strong> or <strong>"Orders"</strong> from the menu.'
+  ],
+  outbound_management_add_title: "Creating an Order/Invoice:",
+  outbound_management_add_steps: [
+    'Click <strong>"Create Invoice"</strong>.',
+    "Enter customer/company details, the date, and any relevant notes.",
+    "<strong>Adding Items & Allocating Batches:</strong>",
+    [
+      'For each item, select the SKU (e.g., "Pasta di Aragona - Fusilloni Graganano IGP 500gr").',
+      "CIMS displays available batches for that SKU, highlighting those closest to expiry.",
+      "Enter the quantity/weight required.",
+      "The system allocates the requested amount from one or more batches, following FIFO logic.",
+      "Real-time validation prevents over-allocation."
+    ],
+    "Review and save. This deducts the allocated quantities from the respective batches' available stock."
+  ],
+  outbound_management_integration_title: "Small Invoice Integration (Delivery Notes):",
+  outbound_management_integration_points: [
+    "CIMS integrates with the Small Invoice API for delivery note processing.",
+    "<strong>Import Process:</strong> Delivery notes can be fetched from Small Invoice. During import:",
+    [
+      "SKUs are validated against your CIMS master inventory.",
+      "Delivery note numbers are sanitized for consistent formatting."
+    ],
+    "<strong>Automated Invoice Creation:</strong> Imported delivery notes can be used to create sales invoices within CIMS, linking them to the correct batches and updating inventory."
+  ],
+  expiry_calendar_title: "6.4 Expiry Calendar",
+  expiry_calendar_roles: "(Primary Users: Admin, Invoice, Inventory Roles)",
+  expiry_calendar_body: "A proactive tool for minimizing waste by visualizing product shelf life.",
+  expiry_calendar_points: [
+    '<strong>Accessing:</strong> Navigate to <strong>"Calendar"</strong>.',
+    "<strong>Functionality:</strong>",
+    [
+      "Displays a calendar view.",
+      "Dates with batches expiring on or around them are highlighted.",
+      "Clicking on a date reveals the specific batches set to expire."
+    ]
+  ],
+  dashboard_analytics_title: "6.5 Dashboard & Analytics",
+  dashboard_analytics_roles: "(Primary Users: Admin, Invoice Roles)",
+  dashboard_analytics_body: "Your central hub for operational insights and key performance indicators (KPIs).",
+  dashboard_analytics_points: [
+    '<strong>Accessing:</strong> Navigate to <strong>"Dashboard"</strong>.',
+    "<strong>Key Metrics Displayed:</strong>",
+    [
+      "Total inventory value.",
+      "Breakdown of expiring goods by value and time window (expired, 0-30 days, 31-60 days, 61+ days).",
+      "Value of expiring goods grouped by warehouse location.",
+      "Visual charts and reports, such as expiry timeline charts, location-based value breakdowns, and yearly cost analysis."
+    ]
+  ],
+  notification_system_title: "6.6 Notification System",
+  notification_system_roles: "(Relevant for: Admin, Invoice Roles primarily; other roles may receive tailored alerts)",
+  notification_system_body: "Stay informed about critical inventory events in real-time.",
+  notification_system_points: [
+    '<strong>Accessing:</strong> Via the <strong>bell icon</strong> in the application header.',
+    "<strong>Notification Types:</strong>",
+    [
+      "<strong>Expiring Items:</strong> Alerts for batches already expired or expiring soon.",
+      "<strong>New Stock:</strong> Alerts for recently added batches."
+    ],
+    "<strong>Interaction:</strong>",
+    [
+      'Clicking the bell icon opens a floating panel with sections for "Expiring Items" and "New Stock."',
+      "Each section can be expanded/collapsed and marked as read independently.",
+      "Real-time updates and sound notifications are supported."
+    ]
+  ],
+  user_client_management_title: "6.7 User & Client Management",
+  user_client_management_roles: "(Primary Users: Admin Role Only)",
+  user_client_management_body: "Manage who has access to CIMS and what they can do.",
+  user_client_management_points: [
+    '<strong>Accessing:</strong> Navigate to <strong>"Users"</strong> or "Admin" section.',
+    "<strong>Functionality:</strong>",
+    [
+      "<strong>Staff Users:</strong> Add/edit users, assign roles, activate/deactivate accounts.",
+      "<strong>Client Accounts:</strong> Manage accounts for external clients who access the Customer Portal."
+    ]
+  ],
+  data_export_reporting_title: "6.8 Data Export & Reporting",
+  data_export_reporting_roles: "(Available to: Admin, Invoice, Inventory Roles, depending on the specific data)",
+  data_export_reporting_points: [
+    'Most data tables offer an <strong>"Export"</strong> or <strong>"Export to CSV"</strong> button.',
+    "Download filtered/displayed data for offline analysis or backup.",
+    "Admins may have access to audit logs and financial report generation tools."
+  ],
+  client_portal_features_title: "7. Client Portal (Customer) Features",
+  client_portal_features_body: "CIMS provides a dedicated, secure portal for your clients.",
+  client_access_auth_title: "7.1 Access & Authentication",
+  client_access_auth_points: [
+    "Clients access the portal via a specific URL.",
+    "Authentication is via Google Sign-In.",
+    'Access is strictly limited to users with the "Client" role.'
+  ],
+  client_product_search_title: "7.2 Product Search & Inventory Browsing",
+  client_product_search_points: [
+    "<strong>Advanced Search:</strong> Search for products by name, SKU, or other attributes (e.g., \"Pasta di Aragona - Fusilloni Graganano IGP 500gr\").",
+    "<strong>Real-Time Availability:</strong> See up-to-date stock levels, including batch details and expiry dates where applicable.",
+    "<strong>Featured Products:</strong> The portal may highlight items such as those nearing expiry, new arrivals, or promotional products."
+  ],
+  client_cart_checkout_title: "7.3 Cart & Checkout Process",
+  client_cart_checkout_points: [
+    "<strong>Cart Management:</strong> Add products to the cart, specifying quantities or weights.",
+    "<strong>Batch-Aware Cart:</strong> The system allocates stock from available batches, following FIFO logic.",
+    "<strong>Checkout Flow:</strong> Review cart, confirm delivery info, accept terms, and submit the order."
+  ],
+  client_order_confirmation_title: "7.4 Order Confirmation & Client Profile (<code>/profile</code>)",
+  client_order_confirmation_points: [
+    "<strong>Immediate Confirmation:</strong> After order submission, clients see a summary page.",
+    "<strong>Email Notification:</strong> An automated email confirmation is sent.",
+    "<strong>Client Profile & Order History:</strong>",
+    [
+      "Clients can view their profile and order history.",
+      "Order history lists all past orders with order number and date.",
+      "Clicking an order shows detailed confirmation."
+    ]
+  ],
+  client_voice_assistant_title: "7.5 Voice Assistant (Sandra)",
+  client_voice_assistant_body: "Clients can use <strong>Sandra</strong>, the AI-powered voice assistant, directly in the portal.",
+  client_voice_assistant_points: [
+    "<strong>Natural Conversation:</strong> Speak naturally; Sandra understands queries and requests.",
+    "<strong>Personalized Experience:</strong> Sandra tailors assistance based on your account and past orders.",
+    "<strong>Capabilities:</strong>",
+    [
+      '<strong>Check Product Availability:</strong> "Sandra, do you have Pasta di Aragona - Fusilloni in stock?"',
+      '<strong>Place Orders:</strong> "Sandra, I\'d like to order 10 packs of Pasta di Aragona - Fusilloni."',
+      "<strong>Get Help & Information:</strong> Ask for help with navigation, product details, or order status."
+    ],
+    '<strong>Accessing Sandra:</strong> Look for the microphone icon or "Ask Sandra" button.'
+  ],
+  client_privacy_terms_title: "7.6 Privacy & Terms",
+  client_privacy_terms_body: "The portal provides links to the <strong>Privacy Policy</strong> and <strong>Terms & Conditions</strong>.",
   mobile_accessibility_title: "8. Mobile Experience & Accessibility",
   mobile_accessibility_body: "CIMS is built for usability across devices.",
   mobile_accessibility_points: [
