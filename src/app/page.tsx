@@ -29,7 +29,7 @@ const GuideSection = ({ id, title, icon: Icon, level = 2, children }: { id: stri
 };
 
 export default function UserGuidePage() {
-  const [lang, setLang] = useState<'en' | 'it'>('it');
+  const [lang, setLang] = useState<'en' | 'it'>('en');
   const t = lang === 'en' ? en : it;
 
   const mermaidCode = `
