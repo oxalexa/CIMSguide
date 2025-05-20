@@ -77,7 +77,7 @@ const en = {
       { field: "Batch Number", value: "324029", description: "Supplier or internal lot/batch number" },
       { field: "Quantity", value: "20", description: "Number of units (if not weight-based)" },
       { field: "Weight (kg)", value: "", description: "Weight (if weight-based; blank if not)" },
-      { field: "Available Amount", value: "19", description: "Current available units or weight" },
+      { field: "Available Amount", value: "19", description: "Current available units" },
       { field: "Expiry Date", value: "2027-01-01", description: "Date after which the batch should not be used" },
       { field: "Date Received", value: "2024-12-27", description: "Date batch was received" },
       { field: "Warehouse", value: "(+25°C)", description: "Storage location" },
